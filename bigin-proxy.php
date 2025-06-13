@@ -1,3 +1,4 @@
+
 <?php
 // Set CORS headers
 header("Access-Control-Allow-Origin: *");
@@ -22,10 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $refresh_token = '1000.aa598619b2e247577eff3dd50f4a0c67.eab00e87cd2d9d042511a70ea5e604cd';
 $client_id = '1000.HURZ86KGVR7DUYRSEP698XGKX0KSOD';
 $client_secret = '86b80e63b847d03e395c4c80df6a510dbe8589b2d9';
-
-// Email configuration
-$notification_email = 'contact@gingersorensen.com';
-$from_email = 'noreply@strataengineers.com';
 
 // Function to log debug information to a separate file
 function logDebug($message, $data = null) {
@@ -151,41 +148,6 @@ function makeBiginRequest($accessToken, $biginData) {
     ];
 }
 
-// Function to send email notification
-function sendEmailNotification($contactData, $to_email, $from_email) {
-    logDebug("Preparing to send email notification", ['to' => $to_email]);
-    
-    $subject = "New Contact Created - " . $contactData['First_Name'] . " " . $contactData['Last_Name'];
-    
-    $message = "A new contact has been successfully created in Bigin CRM:\n\n";
-    $message .= "Name: " . $contactData['First_Name'] . " " . $contactData['Last_Name'] . "\n";
-    $message .= "Email: " . $contactData['Email'] . "\n";
-    $message .= "Phone: " . ($contactData['Phone'] ?: 'Not provided') . "\n";
-    $message .= "Lead Source: " . ($contactData['Lead_Source'] ?: 'Not specified') . "\n";
-    $message .= "Description: " . ($contactData['Description'] ?: 'None') . "\n\n";
-    $message .= "Timestamp: " . date('Y-m-d H:i:s') . "\n";
-    
-    $headers = "From: $from_email\r\n";
-    $headers .= "Reply-To: $from_email\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-    
-    logDebug("Sending email notification", [
-        'subject' => $subject,
-        'to' => $to_email,
-        'from' => $from_email
-    ]);
-    
-    $emailSent = mail($to_email, $subject, $message, $headers);
-    
-    if ($emailSent) {
-        logDebug("Email notification sent successfully");
-        return true;
-    } else {
-        logDebug("Failed to send email notification");
-        return false;
-    }
-}
-
 // Get POST data
 $input = json_decode(file_get_contents('php://input'), true);
 
@@ -271,14 +233,9 @@ if ($result['httpCode'] === 200 || $result['httpCode'] === 201) {
     if (isset($responseData['data']) && isset($responseData['data'][0]['code']) && $responseData['data'][0]['code'] === 'SUCCESS') {
         logDebug("Request completed successfully");
         
-        // Send email notification on successful contact creation
-        $contactData = $biginData['data'][0];
-        $emailSent = sendEmailNotification($contactData, $notification_email, $from_email);
-        
         echo json_encode([
             'success' => true,
-            'data' => $responseData,
-            'email_notification_sent' => $emailSent
+            'data' => $responseData
         ]);
     } else {
         logDebug("API response indicates failure", $responseData);
