@@ -1,4 +1,3 @@
-
 <?php
 // Set CORS headers
 header("Access-Control-Allow-Origin: *");
@@ -171,8 +170,8 @@ $biginData = [
 
 logDebug("Bigin data prepared", $biginData);
 
-// Initial access token
-$accessToken = '1000.3e14242f25c6024ad378bf849e90a0a0.a63eabc2f4a52722bfae9d0d54421567';
+// Initial access token - UPDATED WITH FRESH TOKEN
+$accessToken = '1000.082035dad633b6f86a4e8f5ed1f4e239.069626046138fdc8f294e477b98e42b8';
 
 logDebug("Making initial API request with stored token");
 
