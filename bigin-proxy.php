@@ -23,14 +23,25 @@ $refresh_token = '1000.aa598619b2e247577eff3dd50f4a0c67.eab00e87cd2d9d042511a70e
 $client_id = '1000.HURZ86KGVR7DUYRSEP698XGKX0KSOD';
 $client_secret = '86b80e63b847d03e395c4c80df6a510dbe8589b2d9';
 
-// Function to log debug information
+// Function to log debug information to a separate file
 function logDebug($message, $data = null) {
     $timestamp = date('Y-m-d H:i:s');
     $logMessage = "[$timestamp] $message";
     if ($data !== null) {
         $logMessage .= " | Data: " . json_encode($data);
     }
-    error_log($logMessage);
+    $logMessage .= "\n";
+    
+    // Write to debug log file
+    $logFile = __DIR__ . '/bigin-debug.log';
+    
+    // Ensure the log file is writable and limit its size
+    if (file_exists($logFile) && filesize($logFile) > 5242880) { // 5MB limit
+        // Truncate if too large
+        file_put_contents($logFile, '');
+    }
+    
+    file_put_contents($logFile, $logMessage, FILE_APPEND | LOCK_EX);
 }
 
 // Function to refresh access token
