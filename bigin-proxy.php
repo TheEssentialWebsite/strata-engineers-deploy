@@ -24,8 +24,8 @@ $client_id = '1000.HURZ86KGVR7DUYRSEP698XGKX0KSOD';
 $client_secret = '86b80e63b847d03e395c4c80df6a510dbe8589b2d9';
 
 // Email configuration
-$notification_email = 'paul@strataconsultingengineers.com'; // Change this to your email
-$from_email = 'noreply@strataconsultingengineers.com'; // Change this to your domain email
+$notification_email = 'contact@gingersorensen.com';
+$from_email = 'noreply@strataengineers.com';
 
 // Function to log debug information to a separate file
 function logDebug($message, $data = null) {
