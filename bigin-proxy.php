@@ -31,10 +31,6 @@ function logDebug($message, $data = null) {
         $logMessage .= " | Data: " . json_encode($data);
     }
     error_log($logMessage);
-    
-    // Also output to response for debugging (remove in production)
-    echo json_encode(['debug' => $logMessage]) . "\n";
-    flush();
 }
 
 // Function to refresh access token
