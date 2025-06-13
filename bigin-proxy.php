@@ -115,7 +115,7 @@ function makeBiginRequest($accessToken, $biginData) {
     $ch = curl_init();
     
     curl_setopt_array($ch, [
-        CURLOPT_URL => 'https://www.zohoapis.com/crm/v2/Contacts',
+        CURLOPT_URL => 'https://www.biginapis.com/crm/v2/Contacts',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_POST => true,
         CURLOPT_POSTFIELDS => json_encode($biginData),
