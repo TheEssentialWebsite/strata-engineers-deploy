@@ -17,9 +17,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/lovable-uploads/797a8e9d-005f-4409-b901-de28dce1bf11.png">
     <link rel="shortcut icon" type="image/png" href="/lovable-uploads/797a8e9d-005f-4409-b901-de28dce1bf11.png">
 
-    <!-- Google Fonts -->
+    <!-- Font Preloading for better performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap"></noscript>
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Open Graph / Facebook -->
@@ -46,8 +50,30 @@
     <!-- Important disclaimer for search engines -->
     <meta name="services" content="foundation evaluation, geotechnical consulting, NDT testing, foundation assessment" />
     <meta name="disclaimer" content="Does not provide structural design services" />
-    <script type="module" crossorigin src="/assets/index-BmawmTQG.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-8xXl5XPi.css">
+
+    <!-- Font loading debug script -->
+    <script>
+      // Font loading verification
+      document.fonts.ready.then(function() {
+        console.log('All fonts loaded successfully');
+        document.body.classList.add('fonts-loaded');
+      });
+
+      // Check specific fonts
+      document.fonts.load('1em Oswald').then(function() {
+        console.log('Oswald font loaded successfully');
+      }).catch(function() {
+        console.error('Failed to load Oswald font');
+      });
+
+      document.fonts.load('1em Inter').then(function() {
+        console.log('Inter font loaded successfully');
+      }).catch(function() {
+        console.error('Failed to load Inter font');
+      });
+    </script>
+    <script type="module" crossorigin src="/assets/index-CUoJcFqr.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DVbxHDEE.css">
   </head>
 
   <body>
