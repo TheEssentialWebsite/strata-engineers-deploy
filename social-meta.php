@@ -9,7 +9,7 @@ $supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 // Default meta tags for fallback
 $defaultTitle = 'Strata Consulting Engineers - Expert Structural Engineering Services';
 $defaultDescription = 'Professional structural engineering consulting services in Phoenix, Arizona. Expert foundation inspections, structural assessments, and engineering solutions.';
-$defaultImage = 'https://example.com/og-image.jpg'; // Update with your actual default image URL
+$defaultImage = 'https://strataconsultingengineers.com/SCE Logo-2024.png';
 $defaultUrl = 'https://strataconsultingengineers.com';
 
 /**
