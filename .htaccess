@@ -2,20 +2,11 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Social Media Crawler Detection and Routing
-    # Check if the request is from a social media crawler
-    RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit|Facebot|Twitterbot|LinkedInBot|WhatsApp|TelegramBot|SkypeUriPreview|SlackBot|DiscordBot|GoogleBot|bingbot) [NC]
-    # Route crawler requests to social-meta.php
-    RewriteRule ^(.*)$ social-meta.php [L,QSA]
-    
-    # Handle Angular and React Router - HTML5 history mode
+    # Handle React Router - HTML5 history mode
     # Don't rewrite files or directories
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
-    
-    # Don't rewrite PHP files
-    RewriteCond %{REQUEST_URI} !\.php$
     
     # Don't rewrite asset files
     RewriteCond %{REQUEST_URI} !\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|map)$
