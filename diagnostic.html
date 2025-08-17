@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hostinger Deployment Diagnostic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>Hostinger Deployment Status</h1>
+  <p>✅ If you see this page, Hostinger is serving the latest deployment.</p>
+  <p>🕐 Page loaded: <script>document.write(new Date().toLocaleString())</script></p>
+  <p>🔧 Build SHA: 0e4b303d660ef07f6c009e685042474257a93ebb</p>
+  <div id="deploy-info">Loading deployment info...</div>
+  <script>
+    fetch('/deploy-info.json')
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('deploy-info').innerHTML = 
+          '<p>📦 Deploy timestamp: ' + data.timestamp + '</p>' +
+          '<p>🆔 Build: ' + data.build + '</p>' +
+          '<p>🌐 Platform: ' + data.deployment + '</p>';
+      })
+      .catch(e => {
+        document.getElementById('deploy-info').innerHTML = 
+          '<p style="color: red;">❌ Deploy info fetch failed: ' + e.message + '</p>';
+      });
+  </script>
+</body>
+</html>
