@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Building outline -->
+  <path d="M16 48V24L32 12L48 24V48" stroke="#1A3B50" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="28" y="32" width="8" height="16" stroke="#1A3B50" stroke-width="1.5" fill="none"/>
+  
+  <!-- Ground line -->
+  <line x1="8" y1="48" x2="56" y2="48" stroke="#1A3B50" stroke-width="2"/>
+  
+  <!-- Hard hat/person icon -->
+  <circle cx="20" cy="54" r="3" stroke="#1A3B50" stroke-width="1.5" fill="none"/>
+  <path d="M17 57V60H23V57" stroke="#1A3B50" stroke-width="1.5" fill="none"/>
+  
+  <!-- Clipboard -->
+  <rect x="44" y="52" width="8" height="10" rx="1" stroke="#1A3B50" stroke-width="1.5" fill="none"/>
+  <line x1="46" y1="55" x2="50" y2="55" stroke="#1A3B50" stroke-width="1"/>
+  <line x1="46" y1="58" x2="50" y2="58" stroke="#1A3B50" stroke-width="1"/>
+</svg>

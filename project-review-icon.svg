@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Document -->
+  <rect x="12" y="8" width="32" height="44" rx="2" stroke="#1A3B50" stroke-width="2" fill="none"/>
+  
+  <!-- Document lines -->
+  <line x1="18" y1="18" x2="38" y2="18" stroke="#1A3B50" stroke-width="1.5"/>
+  <line x1="18" y1="24" x2="38" y2="24" stroke="#1A3B50" stroke-width="1.5"/>
+  <line x1="18" y1="30" x2="32" y2="30" stroke="#1A3B50" stroke-width="1.5"/>
+  
+  <!-- Checkmarks -->
+  <path d="M16 18L18 20L22 16" stroke="#1A3B50" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16 24L18 26L22 22" stroke="#1A3B50" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Magnifying glass -->
+  <circle cx="48" cy="36" r="8" stroke="#1A3B50" stroke-width="2" fill="none"/>
+  <line x1="54" y1="42" x2="58" y2="46" stroke="#1A3B50" stroke-width="2" stroke-linecap="round"/>
+</svg>
