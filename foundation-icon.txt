@@ -1,7 +1,0 @@
-<!-- Save as: foundation-icon.svg -->
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <path d="M16 32V56H48V32" stroke="#123C51" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M8 32L32 12L56 32" stroke="#123C51" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="26" y="36" width="12" height="12" stroke="#123C51" stroke-width="3"/>
-</svg>
