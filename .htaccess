@@ -2,8 +2,12 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Prioritize index.html over index.php for homepage
-    DirectoryIndex index.html index.php
+    # Hostinger-specific: Force index.html as primary directory index
+    DirectoryIndex index.html index.htm index.php
+    
+    # Cache busting for deployment verification
+    RewriteRule ^deploy-info\.json$ /deploy-info.json [L]
+    RewriteRule ^diagnostic\.html$ /diagnostic.html [L]
 
     # Serve PNG favicon for /favicon.ico
     RewriteRule ^favicon\.ico$ /lovable-uploads/ffd2f43f-24fb-46c4-a15d-6eb45b2584c4.png [L]
@@ -14,8 +18,9 @@
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
     
-    # Don't rewrite asset files
-    RewriteCond %{REQUEST_URI} !\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|map)$
+    # Don't rewrite asset files or diagnostic files
+    RewriteCond %{REQUEST_URI} !\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|map|json)$
+    RewriteCond %{REQUEST_URI} !^/diagnostic\.html$
     
     # Rewrite everything else to index.html to allow HTML5 state links
     RewriteRule ^ index.html [L]
