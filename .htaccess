@@ -1,6 +1,9 @@
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    
+    # Prioritize index.html over index.php for homepage
+    DirectoryIndex index.html index.php
 
     # Serve PNG favicon for /favicon.ico
     RewriteRule ^favicon\.ico$ /lovable-uploads/ffd2f43f-24fb-46c4-a15d-6eb45b2584c4.png [L]
