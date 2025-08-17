@@ -2,10 +2,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Redirect www to non-www (301 permanent redirect)
-    RewriteCond %{HTTP_HOST} ^www\.strataengineers\.com$ [NC]
-    RewriteRule ^(.*)$ https://strataengineers.com/$1 [R=301,L]
-
     # Serve PNG favicon for /favicon.ico
     RewriteRule ^favicon\.ico$ /lovable-uploads/ffd2f43f-24fb-46c4-a15d-6eb45b2584c4.png [L]
     
