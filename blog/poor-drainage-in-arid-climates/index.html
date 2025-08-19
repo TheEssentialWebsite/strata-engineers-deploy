@@ -147,21 +147,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Mobile-optimized font loading to reduce render-blocking -->
-    <style>
-      /* Mobile: Load only essential font weights (400, 600) */
-      @media (max-width: 767px) {
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-      }
-      /* Desktop: Load full font weight range */
-      @media (min-width: 768px) {
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-      }
-      /* Fallback font-display for better loading */
-      * {
-        font-display: swap;
-      }
-    </style>
+    <!-- Non-blocking font loading for performance -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"></noscript>
+    
+    <!-- Preload critical hero image for faster LCP -->
+    <link rel="preload" as="image" href="/paul-hero-desert.jpg" fetchpriority="high">
 
     <!-- Open Graph / Facebook -->
     
@@ -214,12 +205,12 @@
         console.error('Failed to load Inter font');
       });
     </script>
-    <script type="module" crossorigin src="/assets/index-WzdkD6s9.js"></script>
+    <script type="module" crossorigin src="/assets/index-T_GuZQTy.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-hxftqGpT.css">
   </head>
 
   <body>
-  <!-- Enhanced SEO content for search engines and crawlers - Generated at 2025-08-19T02:46:10.259Z -->
+  <!-- Enhanced SEO content for search engines and crawlers - Generated at 2025-08-19T03:00:03.279Z -->
   <noscript>
     <article>
       <h1>Poor Drainage in Arid Climates</h1>
