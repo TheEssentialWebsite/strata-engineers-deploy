@@ -146,7 +146,22 @@
     <!-- Optimized Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Mobile-optimized font loading to reduce render-blocking -->
+    <style>
+      /* Mobile: Load only essential font weights (400, 600) */
+      @media (max-width: 767px) {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+      }
+      /* Desktop: Load full font weight range */
+      @media (min-width: 768px) {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      }
+      /* Fallback font-display for better loading */
+      * {
+        font-display: swap;
+      }
+    </style>
 
     <!-- Open Graph / Facebook -->
     
@@ -204,7 +219,7 @@
   </head>
 
   <body>
-  <!-- Enhanced SEO content for search engines and crawlers - Generated at 2025-08-19T02:31:17.748Z -->
+  <!-- Enhanced SEO content for search engines and crawlers - Generated at 2025-08-19T02:35:17.836Z -->
   <noscript>
     <article>
       <h1>Poor Drainage in Arid Climates</h1>
