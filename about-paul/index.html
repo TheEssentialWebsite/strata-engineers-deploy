@@ -68,7 +68,7 @@
     "@type": "Organization",
     "name": "Strata Consulting Engineers"
   },
-  "dateModified": "2025-09-02T21:44:25.630Z",
+  "dateModified": "2025-09-02T21:55:17.568Z",
   "inLanguage": "en-US"
 }</script>
     <script type="application/ld+json">{
@@ -262,6 +262,50 @@
     <!-- Structured Data for Geotechnical Business -->
     
 
+    <!-- Immediate blog post meta injection -->
+    <script>
+      // Inject blog post meta tags as early as possible for crawler compatibility
+      (function() {
+        const pathname = window.location.pathname;
+        if (pathname.startsWith('/blog/') && pathname !== '/blog') {
+          console.log('🎯 Early blog meta injection for:', pathname);
+          
+          const slug = pathname.replace('/blog/', '');
+          const baseUrl = window.location.origin;
+          const fullUrl = baseUrl + pathname;
+          
+          // Helper to inject meta tag
+          function injectMeta(attribute, attributeValue, content) {
+            const meta = document.createElement('meta');
+            meta.setAttribute(attribute, attributeValue);
+            meta.setAttribute('content', content);
+            document.head.appendChild(meta);
+          }
+          
+          // Inject critical meta tags immediately
+          document.title = 'Foundation Evaluation Article - Strata Consulting Engineers';
+          injectMeta('name', 'description', 'Expert foundation evaluation and geotechnical engineering insights from Strata Consulting Engineers.');
+          
+          // Open Graph
+          injectMeta('property', 'og:title', 'Foundation Evaluation Article - Strata Consulting Engineers');
+          injectMeta('property', 'og:description', 'Expert foundation evaluation and geotechnical engineering insights from Strata Consulting Engineers.');
+          injectMeta('property', 'og:url', fullUrl);
+          injectMeta('property', 'og:type', 'article');
+          injectMeta('property', 'og:image', baseUrl + '/sce-logo-2024.png');
+          injectMeta('property', 'og:image:width', '1200');
+          injectMeta('property', 'og:image:height', '630');
+          
+          // Twitter
+          injectMeta('name', 'twitter:card', 'summary_large_image');
+          injectMeta('name', 'twitter:title', 'Foundation Evaluation Article - Strata Consulting Engineers');
+          injectMeta('name', 'twitter:description', 'Expert foundation evaluation and geotechnical engineering insights from Strata Consulting Engineers.');
+          injectMeta('name', 'twitter:image', baseUrl + '/sce-logo-2024.png');
+          
+          console.log('✅ Early blog meta tags injected');
+        }
+      })();
+    </script>
+
     <!-- Font loading debug script -->
     <script>
       // Font loading verification
@@ -277,20 +321,20 @@
         console.error('Failed to load Inter font');
       });
     </script>
-    <script type="module" crossorigin src="/assets/index-DPefQRrt.js"></script>
+    <script type="module" crossorigin src="/assets/index-BfsZRMfk.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Co8WrICD.css">
   </head>
 
   <body>
     <!-- AI CRAWLER CONTENT VERIFICATION: This page contains full server-side rendered content -->
-    <!-- Generated at 2025-09-02T21:44:25.631Z for route: /about-paul -->
-    <!-- Hostinger deployment marker: 1756849465631 -->
+    <!-- Generated at 2025-09-02T21:55:17.568Z for route: /about-paul -->
+    <!-- Hostinger deployment marker: 1756850117568 -->
     
     <!-- Hidden SSR content for crawlers - accessible but not visible to users -->
     <div id="ssr-content" class="hostinger-ssr-content" 
          style="clip: rect(0 0 0 0); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px;"
          data-deployment="hostinger" 
-         data-timestamp="2025-09-02T21:44:25.631Z">
+         data-timestamp="2025-09-02T21:55:17.568Z">
       <main>
         
       <h1>Paul G. Carter, P.E., G.E. - Your Foundation Evaluation Expert</h1>
