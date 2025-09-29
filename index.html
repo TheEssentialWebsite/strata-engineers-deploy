@@ -62,7 +62,7 @@
     "@type": "Organization",
     "name": "Strata Consulting Engineers"
   },
-  "dateModified": "2025-09-24T01:02:28.212Z",
+  "dateModified": "2025-09-29T06:59:00.529Z",
   "inLanguage": "en-US"
 }</script>
     <script type="application/ld+json">{
@@ -221,46 +221,127 @@
     <!-- Structured Data for Geotechnical Business -->
     
 
-    <!-- Immediate blog post meta injection -->
+    <!-- Enhanced page-specific meta injection -->
     <script>
-      // Inject blog post meta tags as early as possible for crawler compatibility
+      // Inject page-specific meta tags as early as possible for crawler compatibility
       (function() {
         const pathname = window.location.pathname;
+        const baseUrl = window.location.origin;
+        const fullUrl = baseUrl + pathname;
+        
+        // Helper to inject meta tag
+        function injectMeta(attribute, attributeValue, content) {
+          const meta = document.createElement('meta');
+          meta.setAttribute(attribute, attributeValue);
+          meta.setAttribute('content', content);
+          document.head.appendChild(meta);
+        }
+
+        // Helper to remove existing meta tags to avoid conflicts
+        function removeMeta(selector) {
+          const existing = document.querySelector(selector);
+          if (existing) existing.remove();
+        }
+
+        // Route-specific meta data
+        const routeMeta = {
+          '/services': {
+            title: 'Foundation Evaluation Services - Strata Consulting Engineers',
+            description: 'Comprehensive foundation evaluation, geotechnical consulting, and NDT inspection services by Paul G. Carter, P.E., G.E. Expert assessments in Southern Utah.',
+            image: baseUrl + '/field-inspection-zoom.jpg',
+            type: 'website'
+          },
+          '/about-paul': {
+            title: 'About Paul Carter P.E., G.E. - Foundation Engineering Expert',
+            description: 'Meet Paul G. Carter, licensed Professional Engineer and Geotechnical Engineer with 35+ years of foundation evaluation experience in Southern Utah.',
+            image: baseUrl + '/paul-speaking-profile.jpg',
+            type: 'profile'
+          },
+          '/expertise': {
+            title: 'Foundation & Geotechnical Expertise - Strata Engineers',
+            description: 'Specialized expertise in foundation evaluation, geotechnical analysis, and structural assessments. Professional engineering services throughout Utah.',
+            image: baseUrl + '/equipment-testing-ground.jpg',
+            type: 'website'
+          },
+          '/ndt': {
+            title: 'NDT Testing Services - Non-Destructive Foundation Testing',
+            description: 'Advanced non-destructive testing (NDT) services for foundation evaluation and structural assessment by certified engineers.',
+            image: baseUrl + '/ndt-equipment-closeup.jpg', 
+            type: 'website'
+          },
+          '/consultation-process': {
+            title: 'Foundation Consultation Process - How We Work',
+            description: 'Learn about our comprehensive foundation evaluation process. From initial consultation to detailed reporting.',
+            image: baseUrl + '/site-consultation-icon.svg',
+            type: 'website'
+          },
+          '/contact': {
+            title: 'Contact Strata Engineers - Foundation Evaluation Experts',
+            description: 'Contact Paul Carter P.E., G.E. for professional foundation evaluation and geotechnical consulting services in Southern Utah.',
+            image: baseUrl + '/contact-inspection-sidewalk.jpg',
+            type: 'website'
+          },
+          '/blog': {
+            title: 'Foundation Engineering Blog - Expert Insights & Articles',
+            description: 'Expert insights on foundation evaluation, geotechnical engineering, and structural assessment from Strata Consulting Engineers.',
+            image: baseUrl + '/paul-speaking-profile.jpg',
+            type: 'website'
+          }
+        };
+
+        let pageMeta = null;
+
+        // Check for blog posts
         if (pathname.startsWith('/blog/') && pathname !== '/blog') {
           console.log('🎯 Early blog meta injection for:', pathname);
+          pageMeta = {
+            title: 'Foundation Engineering Article - Strata Consulting Engineers',
+            description: 'Expert foundation evaluation and geotechnical engineering insights from Paul Carter P.E., G.E. and Strata Consulting Engineers.',
+            image: baseUrl + '/paul-speaking-profile.jpg',
+            type: 'article'
+          };
+        } else if (routeMeta[pathname]) {
+          console.log('🎯 Early page meta injection for:', pathname);
+          pageMeta = routeMeta[pathname];
+        }
+
+        // Inject meta tags if we have page-specific data
+        if (pageMeta) {
+          // Update title
+          document.title = pageMeta.title;
           
-          const slug = pathname.replace('/blog/', '');
-          const baseUrl = window.location.origin;
-          const fullUrl = baseUrl + pathname;
+          // Remove existing meta tags that might conflict
+          removeMeta('meta[name="description"]');
+          removeMeta('meta[property="og:title"]');
+          removeMeta('meta[property="og:description"]');
+          removeMeta('meta[property="og:url"]');
+          removeMeta('meta[property="og:type"]');
+          removeMeta('meta[property="og:image"]');
+          removeMeta('meta[name="twitter:title"]');
+          removeMeta('meta[name="twitter:description"]');
+          removeMeta('meta[name="twitter:image"]');
           
-          // Helper to inject meta tag
-          function injectMeta(attribute, attributeValue, content) {
-            const meta = document.createElement('meta');
-            meta.setAttribute(attribute, attributeValue);
-            meta.setAttribute('content', content);
-            document.head.appendChild(meta);
-          }
-          
-          // Inject critical meta tags immediately
-          document.title = 'Foundation Evaluation Article - Strata Consulting Engineers';
-          injectMeta('name', 'description', 'Expert foundation evaluation and geotechnical engineering insights from Strata Consulting Engineers.');
+          // Inject new meta tags
+          injectMeta('name', 'description', pageMeta.description);
           
           // Open Graph
-          injectMeta('property', 'og:title', 'Foundation Evaluation Article - Strata Consulting Engineers');
-          injectMeta('property', 'og:description', 'Expert foundation evaluation and geotechnical engineering insights from Strata Consulting Engineers.');
+          injectMeta('property', 'og:title', pageMeta.title);
+          injectMeta('property', 'og:description', pageMeta.description);
           injectMeta('property', 'og:url', fullUrl);
-          injectMeta('property', 'og:type', 'article');
-          injectMeta('property', 'og:image', baseUrl + '/sce-logo-2024.png');
+          injectMeta('property', 'og:type', pageMeta.type);
+          injectMeta('property', 'og:image', pageMeta.image);
           injectMeta('property', 'og:image:width', '1200');
           injectMeta('property', 'og:image:height', '630');
+          injectMeta('property', 'og:site_name', 'Strata Consulting Engineers');
           
           // Twitter
           injectMeta('name', 'twitter:card', 'summary_large_image');
-          injectMeta('name', 'twitter:title', 'Foundation Evaluation Article - Strata Consulting Engineers');
-          injectMeta('name', 'twitter:description', 'Expert foundation evaluation and geotechnical engineering insights from Strata Consulting Engineers.');
-          injectMeta('name', 'twitter:image', baseUrl + '/sce-logo-2024.png');
+          injectMeta('name', 'twitter:title', pageMeta.title);
+          injectMeta('name', 'twitter:description', pageMeta.description);
+          injectMeta('name', 'twitter:image', pageMeta.image);
+          injectMeta('name', 'twitter:site', '@strataengineers');
           
-          console.log('✅ Early blog meta tags injected');
+          console.log('✅ Early page-specific meta tags injected for:', pathname);
         }
       })();
     </script>
@@ -280,20 +361,20 @@
         console.error('Failed to load Inter font');
       });
     </script>
-    <script type="module" crossorigin src="/assets/index-B9s9sAOH.js"></script>
+    <script type="module" crossorigin src="/assets/index-LLTXsnOZ.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-2-j592bj.css">
   </head>
 
   <body>
     <!-- AI CRAWLER CONTENT VERIFICATION: This page contains full server-side rendered content -->
-    <!-- Generated at 2025-09-24T01:02:28.212Z for route: / -->
-    <!-- Hostinger deployment marker: 1758675748212 -->
+    <!-- Generated at 2025-09-29T06:59:00.530Z for route: / -->
+    <!-- Hostinger deployment marker: 1759129140530 -->
     
     <!-- Hidden SSR content for crawlers - accessible but not visible to users -->
     <div id="ssr-content" class="hostinger-ssr-content" 
          style="clip: rect(0 0 0 0); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px;"
          data-deployment="hostinger" 
-         data-timestamp="2025-09-24T01:02:28.212Z">
+         data-timestamp="2025-09-29T06:59:00.530Z">
       <main>
         
       <h1>Expert Foundation Evaluations & Geotechnical Consultations For Southern Utah and Beyond</h1>
